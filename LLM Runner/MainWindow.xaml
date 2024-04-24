@@ -1,0 +1,30 @@
+﻿<Window x:Class="LLM_Runner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LLM_Runner"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        mc:Ignorable="d"
+        Title="LLM Runner" Height="650" Width="1000">
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Stroke="Black" Width="77"/>
+        <Button x:Name="hf_button" Content="HuggingFace🤗" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="77" FontSize="10" Click="hf_click"/>
+        <wv2:WebView2 x:Name="hf_wv" Margin="82,0,0,0" Source="https://huggingface.co/" Visibility="Collapsed"/>
+        <Button x:Name="dl_button" Content="Downloads" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Height="40" Width="77" Click="dl_click"/>
+        <wv2:WebView2 x:Name="dl_wv" Margin="77,0,0,0" Source="edge://downloads/all" Visibility="Collapsed"/>
+        <Button x:Name="base_button" Content="Base" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Height="40" Width="77" FontSize="14" Click="base_click"/>
+        <Label x:Name="base_label" Content="Base text generation" HorizontalAlignment="Left" Margin="82,0,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" IsVisibleChanged="base_vischange"/>
+        <RichTextBox x:Name="base_tbox" Margin="129,40,138,100">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Input here"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Rectangle x:Name="base_history" Stroke="Black" HorizontalAlignment="Right" Width="116"/>
+        <Label x:Name="base_hislabel" Content="History" Margin="0,2,28,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Right" Width="60"/>
+        <Button x:Name="base_genbutton" Content="Generate" HorizontalAlignment="Left" Margin="129,0,0,27" Width="93" FontSize="16" Height="51" VerticalAlignment="Bottom"/>
+        <Button x:Name="base_sbutton" Content="⚙" HorizontalAlignment="Left" Margin="804,556,0,0" VerticalAlignment="Top" Height="51" Width="58" FontSize="24"/>
+    </Grid>
+</Window>
